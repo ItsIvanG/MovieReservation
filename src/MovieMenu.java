@@ -19,7 +19,7 @@ public class MovieMenu {
 
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Ivan\\Documents\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
             Statement st = conn.createStatement();
 
             String sql = "Select * from movie";
