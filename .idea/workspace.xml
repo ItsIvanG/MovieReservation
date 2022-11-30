@@ -1,17 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="maven and db relative">
-      <change afterPath="$PROJECT_DIR$/src/Header.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="ayyyyy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieReservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieReservation.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669805593113</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ayyyyy">
+      <created>1669823981767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669823981767</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -146,6 +146,7 @@
     <MESSAGE value="new" />
     <MESSAGE value="MSACCESS" />
     <MESSAGE value="maven and db relative" />
-    <option name="LAST_COMMIT_MESSAGE" value="maven and db relative" />
+    <MESSAGE value="ayyyyy" />
+    <option name="LAST_COMMIT_MESSAGE" value="ayyyyy" />
   </component>
 </project>

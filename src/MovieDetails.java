@@ -9,8 +9,8 @@ public class MovieDetails {
     public JPanel panel;
     private JButton backButton;
     private JComboBox dateBox;
-    private JComboBox comboBox2;
-    private JComboBox comboBox3;
+    private JComboBox timeBox;
+    private JComboBox hallBox;
 
     public String movieCode;
 
@@ -34,7 +34,8 @@ public class MovieDetails {
                 System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
             }
             // GET SHOW DATES
-             sql = "Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id='"+movieCode+"'";
+//             sql = "Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id='"+movieCode+"'";
+            sql = "Select distinct show_date from show_time where movie_id='"+movieCode+"'";
              rs = st.executeQuery(sql);
             while(rs.next()){
                 dateBox.addItem(rs.getString(1));
@@ -49,6 +50,29 @@ public class MovieDetails {
             @Override
             public void actionPerformed(ActionEvent e) {
                 head.seeMovieMenu(head);
+            }
+        });
+        dateBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("DATE: "+dateBox.getSelectedItem());
+                timeBox.removeAllItems();
+                try{
+                    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Statement st = conn.createStatement();
+                    String sql = "Select show_time from show_time where movie_id='"+movieCode+"' and show_date='"+dateBox.getSelectedItem()+"'";
+                    ResultSet rs = st.executeQuery(sql);
+                    while(rs.next()){
+                        timeBox.addItem(rs.getString(1));
+
+    //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
+                    }
+                }catch (Exception x){
+                    System. out.println(x.getMessage());
+                }
+
+
             }
         });
     }

@@ -52,7 +52,7 @@
           <text value="Select Date:"/>
         </properties>
       </component>
-      <component id="18caf" class="javax.swing.JComboBox" binding="comboBox2" default-binding="true">
+      <component id="18caf" class="javax.swing.JComboBox" binding="timeBox">
         <constraints>
           <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="300" height="-1"/>
@@ -61,7 +61,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="4e16e" class="javax.swing.JComboBox" binding="comboBox3" default-binding="true">
+      <component id="4e16e" class="javax.swing.JComboBox" binding="hallBox">
         <constraints>
           <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="0" indent="0" use-parent-layout="false">
             <minimum-size width="300" height="-1"/>
