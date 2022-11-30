@@ -52,6 +52,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="net.sf.ucanaccess" level="project" />
+    <orderEntry type="library" exported="" name="net.sf.ucanaccess" level="project" />
   </component>
 </module>
