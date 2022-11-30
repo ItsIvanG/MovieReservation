@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MovieReservation.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieMenu.java" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="new">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieReservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieReservation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +36,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Ivan/Documents/ACCESSJAVA/commons-logging-optional-1.1.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RunManager" selected="Application.MovieMenu">
@@ -59,9 +58,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="commons-lang-2.6.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/../../ACCESSJAVA/commons-lang-2.6.jar!/" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MovieMenu" />
+        <item itemvalue="JAR Application.commons-lang-2.6.jar" />
         <item itemvalue="Application.MovieItem" />
       </list>
     </recent_temporary>
@@ -75,6 +79,14 @@
       <option name="presentableId" value="Default" />
       <updated>1669783078753</updated>
     </task>
+    <task id="LOCAL-00001" summary="new">
+      <created>1669786168315</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1669786168315</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +99,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="new" />
+    <option name="LAST_COMMIT_MESSAGE" value="new" />
   </component>
 </project>
