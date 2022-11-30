@@ -17,9 +17,6 @@ public class MovieMenu {
         frame.setTitle("Now Showing");
         frame.setVisible(true);
 
-        frame.add(new MovieItem("a","b").movieItemPanel);
-        frame.add(new MovieItem("a","b").movieItemPanel);
-        frame.add(new MovieItem("a","b").movieItemPanel);
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://C:\\Users\\Ivan\\Documents\\MovieReserv.accdb");
@@ -31,7 +28,7 @@ public class MovieMenu {
 
 
             while(rs.next()){
-                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
+                frame.add(new MovieItem(rs.getString(2),rs.getString(3)).movieItemPanel);
 
             }
         } catch (Exception e){
