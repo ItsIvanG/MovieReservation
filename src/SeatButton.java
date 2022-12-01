@@ -2,10 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 
 public class SeatButton {
     public int seatStatus=0;
@@ -18,10 +15,13 @@ public class SeatButton {
         try{ //GET TAKEN SEATS
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-            Statement st = conn.createStatement();
+//            Statement st = conn.createStatement();
 
-            String sql = "Select * from TICKET where show_id='"+SHOWID+"'";
-            ResultSet rs = st.executeQuery(sql);
+//            String sql = "Select * from TICKET where show_id='"+SHOWID+"'";
+            PreparedStatement pst = conn.prepareStatement("Select * from TICKET where show_id=?");
+            pst.setString(1,Integer.toString(SHOWID));
+
+            ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 if(SEATID.equalsIgnoreCase(rs.getString(2))){
                     seatStatus=2;
