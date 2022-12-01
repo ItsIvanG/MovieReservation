@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
@@ -15,20 +16,28 @@ public class MovieDetails {
     private JComboBox hallBox;
     private JButton confirmButton;
     private JPanel seatsPanel;
+    private JLabel selectedSeatsLabel;
+    private JLabel showIDLabel;
 
     public String movieCode;
 
     public Header head;
 
+    private MovieDetails m = this;
+    private int seatsPerRow;
+
     public List<String> dateList=new ArrayList<String>();
     public List<String> timeList=new ArrayList<String>();
     public List<String> hallList=new ArrayList<String>();
-
-    public String cinemahall;
+    private String[] rowCodes = {"A","B","C","D","E","F","G","H","I","J"};
+    public List<String> selectedSeats=new ArrayList<String>();
+    private int noOfSeats;
+    public GridLayout seatsLayout = new GridLayout(0,10);
+    public int ShowID;
     public MovieDetails(String a, Header h){
         head=h;
-
         movieCode=a;
+
 
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
@@ -168,6 +177,79 @@ public class MovieDetails {
 //                }
             }
         });
-    }
+        hallBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { //////// GENERATE SEATS
+                selectedSeats.clear();
 
+                try
+                {
+                    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Statement st = conn.createStatement();
+                    String sql = "Select * from cinema_room where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"'";
+                    ResultSet rs = st.executeQuery(sql);
+                    while(rs.next()){
+
+                        noOfSeats=rs.getInt(3);
+                        seatsPerRow=rs.getInt(5);
+                    }
+                    System.out.println("SELECTED CINEMA: "+hallList.get(hallBox.getSelectedIndex())+" WHERE NO. OF SEATS: "+noOfSeats+" AND SEATSPERROW: "+seatsPerRow);
+                    seatsPanel.removeAll();
+                    seatsLayout = new GridLayout(0,seatsPerRow);
+                    seatsPanel.setLayout(seatsLayout);
+                    seatsPanel.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
+
+                    ///SET SHOWID
+                     sql = "Select show_id from show_time where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"' and movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
+                     rs = st.executeQuery(sql);
+                    while(rs.next()){
+
+                        ShowID=rs.getInt(1);
+
+                    }
+                    System.out.println("SHOW ID: "+ShowID);
+                    showIDLabel.setText("ShowID: "+Integer.toString(ShowID));
+
+
+                }catch (Exception x){
+                    System. out.println(x.getMessage());
+                }
+
+                /////ADD SEATS TO PANEL
+                for (int i = 0; i < (noOfSeats/seatsPerRow); i++) {
+                    for (int x = 0; x < seatsPerRow; x++) {
+                        String seatIDdebug = rowCodes[i]+(x+1);
+                        seatsPanel.add(new SeatButton(seatIDdebug,m, ShowID).panel);
+                        System.out.println(seatIDdebug+" added");
+                    }
+                }
+
+                seatsPanel.revalidate();
+                seatsPanel.repaint();
+            }
+        });
+
+    }
+    public void addSeatToCart(String seatID){
+        System.out.println("ADDED TO CART, SEATiD: "+seatID);
+        selectedSeats.add(seatID);
+        selectedSeatsLabel.setText("Selected seats: ");
+        for (String x:
+                selectedSeats) {
+            selectedSeatsLabel.setText(selectedSeatsLabel.getText()+x+", ");
+        }
+
+    }
+    public void removeSeatToCart(String seatID){
+        System.out.println("REMOVED FROM CART, SEATiD: "+seatID);
+        selectedSeats.remove(seatID);
+        selectedSeatsLabel.setText("Selected seats: ");
+        for (String x:
+                selectedSeats) {
+            selectedSeatsLabel.setText(selectedSeatsLabel.getText()+x+", ");
+        }
+
+    }
 }
+
