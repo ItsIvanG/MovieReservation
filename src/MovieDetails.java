@@ -13,6 +13,8 @@ public class MovieDetails {
     private JComboBox dateBox;
     private JComboBox timeBox;
     private JComboBox hallBox;
+    private JButton confirmButton;
+    private JPanel seatsPanel;
 
     public String movieCode;
 
@@ -27,6 +29,7 @@ public class MovieDetails {
         head=h;
 
         movieCode=a;
+
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
