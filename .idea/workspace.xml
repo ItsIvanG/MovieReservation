@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="MSACCESS" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="JUSKO ORAS LANG INAYOS MO" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,15 +30,41 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Ivan/Documents/ACCESSJAVA/commons-logging-optional-1.1.jar",
-    "project.structure.last.edited": "Modules",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "315",
+    "last_opened_file_path": "C:/Users/itsiv/Documents/IntelliJ projects/MovieReservation/src",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.MovieMenu">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\itsiv\Documents\IntelliJ projects\MovieReservation\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Header">
+    <configuration name="Header" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Header" />
+      <module name="MovieReservation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="MovieReservation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MovieItem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MovieItem" />
       <module name="MovieReservation" />
@@ -59,7 +85,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Header" />
         <item itemvalue="Application.MovieMenu" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.commons-lang-2.6.jar" />
         <item itemvalue="Application.MovieItem" />
       </list>
@@ -88,14 +116,84 @@
       <option name="project" value="LOCAL" />
       <updated>1669791507481</updated>
     </task>
-    <task id="LOCAL-00003" summary="MSACCESS">
-      <created>1669791762148</created>
+    <task id="LOCAL-00003" summary="maven and db relative">
+      <created>1669805593113</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1669791762148</updated>
+      <updated>1669805593113</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ayyyyy">
+      <created>1669823981767</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669823981767</updated>
+    </task>
+    <task id="LOCAL-00005" summary="zzz">
+      <created>1669824750738</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669824750738</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CINEMA HALL LIST">
+      <created>1669867860329</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669867860329</updated>
+    </task>
+    <task id="LOCAL-00007" summary="seatsPanel added">
+      <created>1669869718426</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1669869718426</updated>
+    </task>
+    <task id="LOCAL-00008" summary="select seats">
+      <created>1669876667059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669876667059</updated>
+    </task>
+    <task id="LOCAL-00009" summary="select seats">
+      <created>1669876750826</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669876750826</updated>
+    </task>
+    <task id="LOCAL-00010" summary="seats taken accounted for">
+      <created>1669904596125</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669904596125</updated>
+    </task>
+    <task id="LOCAL-00011" summary="reg/login">
+      <created>1669911761699</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669911761699</updated>
+    </task>
+    <task id="LOCAL-00012" summary="JUSKO ORAS LANG INAYOS MO">
+      <created>1669917790780</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669917790780</updated>
+    </task>
+    <task id="LOCAL-00013" summary="JUSKO ORAS LANG INAYOS MO">
+      <created>1669918620124</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669918620124</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -112,6 +210,15 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="new" />
     <MESSAGE value="MSACCESS" />
-    <option name="LAST_COMMIT_MESSAGE" value="MSACCESS" />
+    <MESSAGE value="maven and db relative" />
+    <MESSAGE value="ayyyyy" />
+    <MESSAGE value="zzz" />
+    <MESSAGE value="CINEMA HALL LIST" />
+    <MESSAGE value="seatsPanel added" />
+    <MESSAGE value="select seats" />
+    <MESSAGE value="seats taken accounted for" />
+    <MESSAGE value="reg/login" />
+    <MESSAGE value="JUSKO ORAS LANG INAYOS MO" />
+    <option name="LAST_COMMIT_MESSAGE" value="JUSKO ORAS LANG INAYOS MO" />
   </component>
 </project>
