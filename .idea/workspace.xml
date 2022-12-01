@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="seats taken accounted for">
-      <change afterPath="$PROJECT_DIR$/src/Login.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Register.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="reg/login">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SeatButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeatButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669904596125</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="reg/login">
+      <created>1669911761699</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669911761699</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +209,7 @@
     <MESSAGE value="seatsPanel added" />
     <MESSAGE value="select seats" />
     <MESSAGE value="seats taken accounted for" />
-    <option name="LAST_COMMIT_MESSAGE" value="seats taken accounted for" />
+    <MESSAGE value="reg/login" />
+    <option name="LAST_COMMIT_MESSAGE" value="reg/login" />
   </component>
 </project>

@@ -24,11 +24,10 @@ public class MovieMenu {
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-            Statement st = conn.createStatement();
 
-            String sql = "Select * from movie";
+            PreparedStatement pst = conn.prepareStatement("Select * from movie");
 
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = pst.executeQuery();
 
 
             while(rs.next()){

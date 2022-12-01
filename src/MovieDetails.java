@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +19,8 @@ public class MovieDetails {
     private JPanel seatsPanel;
     private JLabel selectedSeatsLabel;
     private JLabel showIDLabel;
+    private JLabel ticketPriceLabel;
+    private JLabel timeLabel;
 
     public String movieCode;
 
@@ -34,6 +37,7 @@ public class MovieDetails {
     private int noOfSeats;
     public GridLayout seatsLayout = new GridLayout(0,10);
     public int ShowID;
+    private double rateAdd;
     public MovieDetails(String a, Header h){
         head=h;
         movieCode=a;
@@ -42,11 +46,12 @@ public class MovieDetails {
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-            Statement st = conn.createStatement();
+//            Statement st = conn.createStatement();
             // GET MOVIE DETAILS
-            String sql = "Select * from movie where movie_id='"+movieCode+"'";
+            PreparedStatement sql = conn.prepareStatement("Select * from movie where movie_id=?");
+            sql.setString(1,movieCode);
 //            String sql = "Select * from movie";
-            ResultSet rs = st.executeQuery(sql);
+            ResultSet rs = sql.executeQuery();
             while(rs.next()){
 
                 movieTitle.setText(rs.getString(2));
@@ -55,15 +60,17 @@ public class MovieDetails {
             }
             // GET SHOW DATES
 //             sql = "Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id='"+movieCode+"'";
-            sql = "Select distinct show_date from show_time where movie_id='"+movieCode+"'";
-            rs = st.executeQuery(sql);
+            sql = conn.prepareStatement("Select distinct show_date from show_time where movie_id=?");
+            sql.setString(1,movieCode);
+            rs = sql.executeQuery();
             while(rs.next()){
                 dateList.add(rs.getString(1));
 
 //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
             }
-            sql = "Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id='"+movieCode+"'";
-            rs = st.executeQuery(sql);
+            sql = conn.prepareStatement("Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id=?");
+            sql.setString(1,movieCode);
+            rs = sql.executeQuery();
             while(rs.next()){
                 dateBox.addItem(rs.getString(1));
 //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
@@ -88,24 +95,31 @@ public class MovieDetails {
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-                    Statement st = conn.createStatement();
-                    String sql = "Select show_time from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"'";
-                    ResultSet rs = st.executeQuery(sql);
+//                    Statement st = conn.createStatement();
+                    PreparedStatement sql = conn.prepareStatement("Select distinct show_time from show_time where movie_id=? and show_date=?");
+                    sql.setString(1,movieCode);
+                    sql.setString(2,dateList.get(dateBox.getSelectedIndex()));
+                    ResultSet rs = sql.executeQuery();
                     while(rs.next()){
 
                         timeList.add(rs.getString(1));
+                        timeBox.addItem(convertToShortTime(rs.getString(1)));
 
-    //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
                     }
-                    sql = "Select FORMAT(show_time, 'Medium Time') from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"'";
-//                    sql = "Select show_time from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"'";
-                    rs = st.executeQuery(sql);
-                    while(rs.next()){
-                        timeBox.addItem(rs.getString(1));
-
-
-//                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
-                    }
+//                    timeLabel.setText("");  --------- TIME PARSE DEBUG LABEL
+//                    for (String x:
+//                         timeList) {
+//                        timeLabel.setText(timeLabel.getText()+" "+x);
+//                    }
+//                    sql = conn.prepareStatement("Select distinct FORMAT(show_time, 'Medium Time') from show_time where movie_id=? and show_date=?");
+//                    sql.setString(1,movieCode);
+//                    sql.setString(2,dateList.get(dateBox.getSelectedIndex()));
+////                    sql = "Select show_time from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"'";
+//                    rs = sql.executeQuery();
+//                    while(rs.next()){
+//                        timeBox.addItem(rs.getString(1));
+////                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
+//                    }
                 }catch (Exception x){
                     System. out.println(x.getMessage());
                 }
@@ -123,19 +137,24 @@ public class MovieDetails {
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-                    Statement st = conn.createStatement();
-                    Statement stCinemaHall = conn.createStatement();
-                    String sql = "Select cinema_hall from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
-                    ResultSet rs = st.executeQuery(sql);
+//                    Statement st = conn.createStatement();
+                    PreparedStatement pst = conn.prepareStatement("Select cinema_hall from show_time where movie_id=? and show_date=? and show_time=?");
+                    pst.setString(1,movieCode);
+                    pst.setString(2,dateList.get(dateBox.getSelectedIndex()) );
+                    pst.setString(3, timeList.get(timeBox.getSelectedIndex()));
+//                    Statement stCinemaHall = conn.createStatement();
+//                    String sql = "Select cinema_hall from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
+                    ResultSet rs = pst.executeQuery();
                     ResultSet rsCinemaHall;
                     while(rs.next()){
                         hallList.add(rs.getString(1));
                         //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
                         /////////////list to box w description
                         System.out.println("LAST CINEMA HALL ADDED: "+hallList.get(hallList.size()-1));
-                        String getCinemaDescCommand = "Select cinema_description from cinema_room where cinema_hall='"+hallList.get(hallList.size()-1)+"'";
-
-                        rsCinemaHall = stCinemaHall.executeQuery(getCinemaDescCommand);
+//                        String getCinemaDescCommand = "Select cinema_description from cinema_room where cinema_hall='"+hallList.get(hallList.size()-1)+"'";
+                        PreparedStatement pstCinemaHall = conn.prepareStatement("Select cinema_description from cinema_room where cinema_hall=?");
+                        pstCinemaHall.setString(1, hallList.get(hallList.size()-1));
+                        rsCinemaHall = pstCinemaHall.executeQuery();
                         while(rsCinemaHall.next()){
                             hallBox.addItem(rsCinemaHall.getString(1));
                             //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
@@ -184,9 +203,21 @@ public class MovieDetails {
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-                    Statement st = conn.createStatement();
-                    String sql = "Select * from cinema_room where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"'";
-                    ResultSet rs = st.executeQuery(sql);
+//                    Statement st = conn.createStatement();
+                    ///GET CINEMA RATE
+                    PreparedStatement sql = conn.prepareStatement("Select rateAdd from cinema_room where cinema_hall=?");
+                    sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
+                    ResultSet rs = sql.executeQuery();
+                    while(rs.next()){
+                        rateAdd = rs.getDouble(1);
+                    }
+
+                    ticketPriceLabel.setText("CINEMA RATE: "+rateAdd);
+
+                    sql = conn.prepareStatement("Select * from cinema_room where cinema_hall=?");
+                    sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
+                    //"Select * from cinema_room where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"'"
+                    rs = sql.executeQuery();
                     while(rs.next()){
 
                         noOfSeats=rs.getInt(3);
@@ -199,8 +230,13 @@ public class MovieDetails {
                     seatsPanel.setBorder(BorderFactory.createEmptyBorder(50,100,50,100));
 
                     ///SET SHOWID
-                     sql = "Select show_id from show_time where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"' and movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
-                     rs = st.executeQuery(sql);
+                    sql = conn.prepareStatement("Select show_id from show_time where cinema_hall=? and movie_id=? and show_date=? and show_time=?");
+                    sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
+                    sql.setString(2,movieCode);
+                    sql.setString(3,dateList.get(dateBox.getSelectedIndex()));
+                    sql.setString(4,timeList.get(timeBox.getSelectedIndex()));
+//                     sql = "Select show_id from show_time where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"' and movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
+                    rs = sql.executeQuery();
                     while(rs.next()){
 
                         ShowID=rs.getInt(1);
@@ -264,6 +300,19 @@ public class MovieDetails {
             selectedSeatsLabel.setText(selectedSeatsLabel.getText()+x+", ");
         }
 
+    }
+    public String convertToShortTime(String inputStr){
+        String res="";
+//        System.out.println("CONVERTING "+inputStr.substring(11,13));
+        System.out.println(Integer.parseInt(inputStr.substring(11,13)));
+        if(Integer.parseInt(inputStr.substring(11,13))>12){
+             int hour = Integer.parseInt(inputStr.substring(11,13))-12;
+             res=hour+inputStr.substring(13,16)+" PM";
+        }else{
+             res=inputStr.substring(11,16)+" AM";
+        }
+//        res=inputStr.substring(10,16)+" AM";
+        return res;
     }
 }
 
