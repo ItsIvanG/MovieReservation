@@ -241,7 +241,7 @@ public class MovieDetails {
         }
 
     }
-    public void removeSeatToCart(String seatID){
+    public void removeSeatFromCart(String seatID){
         System.out.println("REMOVED FROM CART, SEATiD: "+seatID);
         selectedSeats.remove(seatID);
         selectedSeatsLabel.setText("Selected seats: ");

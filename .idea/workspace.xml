@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="seatsPanel added">
-      <change afterPath="$PROJECT_DIR$/src/SeatButton.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/SeatButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="select seats">
       <change beforePath="$PROJECT_DIR$/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeatButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SeatButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669869718426</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="select seats">
+      <created>1669876667059</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1669876667059</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +178,7 @@
     <MESSAGE value="zzz" />
     <MESSAGE value="CINEMA HALL LIST" />
     <MESSAGE value="seatsPanel added" />
-    <option name="LAST_COMMIT_MESSAGE" value="seatsPanel added" />
+    <MESSAGE value="select seats" />
+    <option name="LAST_COMMIT_MESSAGE" value="select seats" />
   </component>
 </project>

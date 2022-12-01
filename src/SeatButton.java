@@ -17,7 +17,7 @@ public class SeatButton {
                     seatButton.setBackground(Color.GREEN);
                     seatStatus=1;
                 } else if (seatStatus==1) {
-                    m.removeSeatToCart(SEATID);
+                    m.removeSeatFromCart(SEATID);
                     seatButton.setBackground(Color.WHITE);
                     seatStatus=0;
                 }
