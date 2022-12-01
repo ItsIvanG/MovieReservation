@@ -66,8 +66,6 @@ public class MovieDetails {
             rs = st.executeQuery(sql);
             while(rs.next()){
                 dateBox.addItem(rs.getString(1));
-
-
 //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
             }
             System.out.println(dateList);
@@ -217,13 +215,29 @@ public class MovieDetails {
                 }
 
                 /////ADD SEATS TO PANEL
-                for (int i = 0; i < (noOfSeats/seatsPerRow); i++) {
-                    for (int x = 0; x < seatsPerRow; x++) {
-                        String seatIDdebug = rowCodes[i]+(x+1);
-                        seatsPanel.add(new SeatButton(seatIDdebug,m, ShowID).panel);
-                        System.out.println(seatIDdebug+" added");
+
+                int currentSeat=0;
+                int currentRow=0;
+                int currentSeatReset=0;
+                while(currentSeat<noOfSeats){
+                    String seatIDdebug = rowCodes[currentRow]+(currentSeatReset+1);
+                    seatsPanel.add(new SeatButton(seatIDdebug,m, ShowID).panel);
+                    System.out.println(seatIDdebug+" added");
+                    currentSeat++;
+                    currentSeatReset++;
+
+                    if(currentSeat%seatsPerRow==0&&currentSeat!=0){
+                        currentRow++;
+                        currentSeatReset=0;
                     }
                 }
+//                for (int i = 0; i < noOfSeats/seatsPerRow; i++) {
+//                    for (int x = 0; x < seatsPerRow; x++) {
+//
+//                        seatsPanel.add(new SeatButton(seatIDdebug,m, ShowID).panel);
+//                        System.out.println(seatIDdebug+" added");
+//                    }
+//                }
 
                 seatsPanel.revalidate();
                 seatsPanel.repaint();
