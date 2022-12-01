@@ -280,6 +280,18 @@ public class MovieDetails {
             }
         });
 
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!selectedSeats.isEmpty()){
+                    h.purchasingSeats = selectedSeats;
+                    h.selectedShowID = ShowID;
+                    h.confirmPurchaseScreen(h);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please select atleast one seat!");
+                }
+            }
+        });
     }
     public void addSeatToCart(String seatID){
         System.out.println("ADDED TO CART, SEATiD: "+seatID);
