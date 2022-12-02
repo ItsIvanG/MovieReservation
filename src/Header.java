@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Header {
     private JPanel panel;
@@ -10,11 +12,14 @@ public class Header {
     private JButton signInButton;
     private JButton registerButton;
     private JButton signOutButton;
+    private JButton myTicketsButton;
 
     public String movieCode;
     public String customerEmail="";
     public String customerName;
 
+    public List<String> purchasingSeats=new ArrayList<String>();
+    public int selectedShowID;
     public Header() {
         Header h = this;
         registerButton.addActionListener(new ActionListener() {
@@ -79,16 +84,23 @@ public class Header {
     public void checkLoginStatus(){
         if(customerEmail.equals("")){
             signOutButton.setVisible(false);
+            myTicketsButton.setVisible(false);
             signInButton.setVisible(true);
             registerButton.setVisible(true);
         } else{
             signOutButton.setVisible(true);
+            myTicketsButton.setVisible(true);
             signInButton.setVisible(false);
             registerButton.setVisible(false);
         }
     }
 
-
+    public void confirmPurchaseScreen(Header h){
+        h.contentPanel.remove(0);
+        h.contentPanel.add(new ConfirmPurchase(purchasingSeats, selectedShowID,movieCode, h).panel);
+        h.contentPanel.revalidate();
+        h.contentPanel.repaint();
+    }
 
 }
 
