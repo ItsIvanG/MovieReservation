@@ -5,6 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ConfirmPurchase {
@@ -26,6 +30,10 @@ public class ConfirmPurchase {
     private double cinemaRate;
     private double ticketsTotalPrice;
     private double moviePrice;
+    private int paymentID;
+    private String[] paymentMethods = {"COUNTER","CREDIT","GCASH"};
+    private int paymentMethodInt=0;
+    private List<Integer> paymentIDs = new ArrayList<Integer>();
     public ConfirmPurchase(List<String> i, int ShowID, String m, Header h){
 
         /////get movie details
@@ -89,6 +97,71 @@ public class ConfirmPurchase {
             @Override
             public void actionPerformed(ActionEvent e) {
                 h.seeMovieDetails(m,h);
+            }
+        });
+        confirmButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+                    PreparedStatement pst;
+                    ResultSet rs;
+                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+
+                    pst = conn.prepareStatement("select payment_id from payment");
+                    rs = pst.executeQuery();
+                    while (rs.next()){
+                        paymentIDs.add(rs.getInt(1));
+                    }
+                    Collections.sort(paymentIDs);
+                    paymentID=paymentIDs.get(paymentIDs.size()-1)+1;
+                    System.out.println("PaymentID: "+paymentID);
+
+                    ///insert into payment table
+                    LocalDateTime now = LocalDateTime.now();
+                    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+                    pst = conn.prepareStatement("insert into payment(payment_id,payment_datetime,mode_of_payment,payment_amount,customeremail) values (?,?,?,?,?)");
+                    pst.setString(1,Integer.toString(paymentID));
+                    System.out.println("Adding current date: "+dtf.format(now));
+                    pst.setString(2,dtf.format(now));
+                    pst.setString(3,paymentMethods[paymentMethodInt]);
+                    pst.setString(4,Double.toString(ticketsTotalPrice));
+                    pst.setString(5, h.customerEmail);
+                    pst.execute();
+                    System.out.println("PAYMENT RECORD ADDED");
+
+                    for (String seats:
+                         i) {
+                        pst = conn.prepareStatement("insert into ticket(seat_id,show_id,payment_id) values (?,?,?)");
+                        pst.setString(1,seats);
+                        pst.setString(2, Integer.toString(ShowID));
+                        pst.setString(3,Integer.toString(paymentID));
+                        pst.execute();
+                    }
+                    JOptionPane.showMessageDialog(null, "Purchase success.");
+                    h.seeTickets(h);
+                } catch(Exception x){
+                    System.out.println(x.getMessage());
+                }
+            }
+        });
+        overTheCounterRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paymentMethodInt=0;
+            }
+        });
+        creditCardRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paymentMethodInt=1;
+            }
+        });
+        GCashRadioButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                paymentMethodInt=2;
             }
         });
     }

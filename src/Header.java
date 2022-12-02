@@ -15,12 +15,13 @@ public class Header {
     private JButton myTicketsButton;
 
     public String movieCode;
-    public String customerEmail="";
+    public String customerEmail="bianca.santos.a@bulsu.edu.ph";
     public String customerName;
 
     public List<String> purchasingSeats=new ArrayList<String>();
     public int selectedShowID;
     public Header() {
+
         Header h = this;
         registerButton.addActionListener(new ActionListener() {
             @Override
@@ -52,10 +53,7 @@ public class Header {
         myTicketsButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.contentPanel.remove(0);
-                h.contentPanel.add(new myTickets(h).panel);
-                h.contentPanel.revalidate();
-                h.contentPanel.repaint();
+                seeTickets(h);
             }
         });
     }
@@ -111,5 +109,11 @@ public class Header {
         h.contentPanel.repaint();
     }
 
+    public void seeTickets(Header h){
+        h.contentPanel.remove(0);
+        h.contentPanel.add(new myTickets(h, customerEmail).panel);
+        h.contentPanel.revalidate();
+        h.contentPanel.repaint();
+    }
 }
 

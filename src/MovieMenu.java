@@ -10,7 +10,6 @@ public class MovieMenu {
         h=x;
         panel.setBorder(BorderFactory.createEmptyBorder(30,30,30,30));
         panel.setLayout(new GridLayout(0,2));
-        panel.setAutoscrolls(true);
 
 
 //        frame.setLayout(new GridLayout(0,2));
