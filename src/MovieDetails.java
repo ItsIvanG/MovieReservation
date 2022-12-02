@@ -137,6 +137,7 @@ public class MovieDetails {
                 System.out.println("GETTING CINEMAS");
                 hallBox.removeAllItems();
                 hallList.clear();
+
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
@@ -201,7 +202,7 @@ public class MovieDetails {
             @Override
             public void actionPerformed(ActionEvent e) { //////// GENERATE SEATS
                 selectedSeats.clear();
-
+                caluclatePrice();
                 try
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

@@ -49,6 +49,15 @@ public class Header {
                 checkLoginStatus();
             }
         });
+        myTicketsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                h.contentPanel.remove(0);
+                h.contentPanel.add(new myTickets(h).panel);
+                h.contentPanel.revalidate();
+                h.contentPanel.repaint();
+            }
+        });
     }
 
     public static void main(String[] args) {
