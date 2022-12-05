@@ -1,3 +1,5 @@
+import com.healthmarketscience.jackcess.ConstraintViolationException;
+
 import javax.swing.*;
 import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
@@ -76,12 +78,11 @@ public class Register {
                     JOptionPane.showMessageDialog(null, "Account successfuly registered! Please log in.");
                     hhh.seeMovieMenu(hhh);
 
+
                     }
                 catch (Exception x){
                     System. out.println(x.getMessage());
-                    if(x.getMessage().equals("UCAExc:::5.0.1 integrity constraint violation: unique constraint or index violation; SYS_PK_10434 table: CUSTOMER")){
-                        JOptionPane.showMessageDialog(null, "E-mail already exists!");
-                    }
+                        JOptionPane.showMessageDialog(null, "Error registering. E-mail might already exist!\n\n"+x.getLocalizedMessage());
                 }
             }
         });
