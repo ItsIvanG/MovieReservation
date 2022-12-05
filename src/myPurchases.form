@@ -47,7 +47,9 @@
             <children>
               <component id="6fcdd" class="javax.swing.JList" binding="purchaseList">
                 <constraints/>
-                <properties/>
+                <properties>
+                  <font size="18"/>
+                </properties>
               </component>
             </children>
           </scrollpane>

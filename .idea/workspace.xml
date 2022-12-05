@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="my purchases">
-      <change beforePath="$PROJECT_DIR$/src/connectionClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/connectionClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieReserv.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myPurchases.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/myPurchases.form" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -285,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670254362877</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="my purchases">
+      <created>1670254493226</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1670254493226</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

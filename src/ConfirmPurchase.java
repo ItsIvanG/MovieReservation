@@ -114,7 +114,11 @@ public class ConfirmPurchase {
                         paymentIDs.add(rs.getInt(1));
                     }
                     Collections.sort(paymentIDs);
-                    paymentID=paymentIDs.get(paymentIDs.size()-1)+1;
+                    if(!paymentIDs.isEmpty()){
+                        paymentID=paymentIDs.get(paymentIDs.size()-1)+1;
+                    }else{
+                        paymentID=1;
+                    }
                     System.out.println("PaymentID: "+paymentID);
 
                     ///insert into payment table
