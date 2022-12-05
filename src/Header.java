@@ -13,6 +13,7 @@ public class Header {
     private JButton registerButton;
     private JButton signOutButton;
     private JButton myTicketsButton;
+    private JButton myPurchasesButton;
 
     public String movieCode;
     public String customerEmail="bianca.santos.a@bulsu.edu.ph";
@@ -22,6 +23,7 @@ public class Header {
     public List<String> purchasingSeats=new ArrayList<String>();
     public int selectedShowID;
     public Header() {
+
 
         Header h = this;
         customerNameLabel.setText(customerEmail);
@@ -58,9 +60,24 @@ public class Header {
                 seeTickets(h);
             }
         });
+        myPurchasesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                seePurchases(h);
+            }
+        });
     }
 
     public static void main(String[] args) {
+        try {
+            // Set System L&F
+            UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+        }
+        catch (UnsupportedLookAndFeelException | ClassNotFoundException | InstantiationException |
+               IllegalAccessException e) {
+            System.out.println(e.getMessage());
+        }
+
         JFrame frame = new JFrame();
         Header h = new Header();
         h.checkLoginStatus(h);
@@ -98,12 +115,14 @@ public class Header {
             myTicketsButton.setVisible(false);
             signInButton.setVisible(true);
             registerButton.setVisible(true);
+            myPurchasesButton.setVisible(false);
             seeMovieMenu(h);
         } else{
             signOutButton.setVisible(true);
             myTicketsButton.setVisible(true);
             signInButton.setVisible(false);
             registerButton.setVisible(false);
+            myPurchasesButton.setVisible(true);
         }
     }
 
@@ -117,6 +136,13 @@ public class Header {
     public void seeTickets(Header h){
         h.contentPanel.remove(0);
         h.contentPanel.add(new myTickets(h, customerEmail).panel);
+        h.contentPanel.revalidate();
+        h.contentPanel.repaint();
+    }
+
+    public void seePurchases(Header h){
+        h.contentPanel.remove(0);
+        h.contentPanel.add(new myPurchases(h, customerEmail).panel);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
     }
