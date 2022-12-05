@@ -39,7 +39,7 @@ public class Login {
         System.out.println("Attempting login "+emailField.getText()+" | "+new String(passwordField.getPassword()));
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
             PreparedStatement pst = conn.prepareStatement("Select * from customer where customer_email=? and password=?");
             pst.setString(1, emailField.getText());
             pst.setString(2, new String(passwordField.getPassword()));

@@ -44,7 +44,7 @@ public class myTickets {
         ticketList.setModel(ticketListModel);
         try { //// GET TICKETS
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
             PreparedStatement pst = conn.prepareStatement("select * from payment where customeremail=?");
             pst.setString(1,email);
             ResultSet rs = pst.executeQuery();
@@ -137,7 +137,7 @@ public class myTickets {
 
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
                     PreparedStatement pst = conn.prepareStatement("Select * from payment where payment_id=?");
                     pst.setString(1,ticketsPurchaseIDs.get(ticketList.getSelectedIndex()));
                     ResultSet rs = pst.executeQuery();

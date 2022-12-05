@@ -14,7 +14,7 @@ public class SeatButton {
 
         try{ //GET TAKEN SEATS
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //            Statement st = conn.createStatement();
 
 //            String sql = "Select * from TICKET where show_id='"+SHOWID+"'";

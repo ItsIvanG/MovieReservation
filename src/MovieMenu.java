@@ -23,7 +23,7 @@ public class MovieMenu {
 //        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 
             PreparedStatement pst = conn.prepareStatement("Select * from movie");
 

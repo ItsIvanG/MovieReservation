@@ -39,7 +39,7 @@ public class ConfirmPurchase {
         /////get movie details
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
             PreparedStatement pst = conn.prepareStatement("Select * from MOVIE where MOVIE_ID=?");
 
             pst.setString(1, m);
@@ -106,7 +106,7 @@ public class ConfirmPurchase {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     PreparedStatement pst;
                     ResultSet rs;
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 
                     pst = conn.prepareStatement("select payment_id from payment");
                     rs = pst.executeQuery();

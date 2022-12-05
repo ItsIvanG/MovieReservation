@@ -49,7 +49,7 @@ public class MovieDetails {
 
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //            Statement st = conn.createStatement();
             // GET MOVIE DETAILS
             PreparedStatement sql = conn.prepareStatement("Select * from movie where movie_id=?");
@@ -97,7 +97,7 @@ public class MovieDetails {
                 timeList.clear();
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //                    Statement st = conn.createStatement();
                     PreparedStatement sql = conn.prepareStatement("Select distinct show_time from show_time where movie_id=? and show_date=?");
                     sql.setString(1,movieCode);
@@ -140,7 +140,7 @@ public class MovieDetails {
 
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //                    Statement st = conn.createStatement();
                     PreparedStatement pst = conn.prepareStatement("Select cinema_hall from show_time where movie_id=? and show_date=? and show_time=?");
                     pst.setString(1,movieCode);
@@ -206,7 +206,7 @@ public class MovieDetails {
                 try
                 {
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //                    Statement st = conn.createStatement();
                     ///GET CINEMA RATE
                     PreparedStatement sql = conn.prepareStatement("Select rateAdd from cinema_room where cinema_hall=?");

@@ -64,7 +64,7 @@ public class Register {
             public void actionPerformed(ActionEvent e) {
                 try{ //INSERT TO CUSTOMER RECORD
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
                     PreparedStatement pst = conn.prepareStatement("INSERT INTO CUSTOMER(customer_email,customer_name,customer_mobileno,password) VALUES (?,?,?,?)");
                     pst.setString(1,emailField.getText());
                     pst.setString(2,fullnameField.getText());
