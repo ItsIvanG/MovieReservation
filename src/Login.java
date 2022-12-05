@@ -25,33 +25,43 @@ public class Login {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Attempting login "+emailField.getText()+" | "+new String(passwordField.getPassword()));
-                try{ //GET TAKEN SEATS
-                    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-                    PreparedStatement pst = conn.prepareStatement("Select * from customer where customer_email=? and password=?");
-                    pst.setString(1, emailField.getText());
-                    pst.setString(2, new String(passwordField.getPassword()));
-
-                    ResultSet rs = pst.executeQuery();
-                    boolean found=false;
-                    while(rs.next()){
-                        JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString(2));
-                        h.customerEmail=rs.getString(1);
-                        h.customerName=rs.getString(2);
-                        h.customerNameLabel.setText(h.customerName);
-                        h.seeMovieMenu(h);
-                        h.checkLoginStatus();
-                        found=true;
-                    }
-                    if(!found)
-                        JOptionPane.showMessageDialog(null, "Credentials not found.");
-                }
-                catch (Exception x){
-                    System. out.println(x.getMessage());
-                }
+                tryLogin(h);
             }
         });
+        passwordField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                tryLogin(h);
+            }
+        });
+    }
+    public void tryLogin(Header h){
+        System.out.println("Attempting login "+emailField.getText()+" | "+new String(passwordField.getPassword()));
+        try{
+            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
+            PreparedStatement pst = conn.prepareStatement("Select * from customer where customer_email=? and password=?");
+            pst.setString(1, emailField.getText());
+            pst.setString(2, new String(passwordField.getPassword()));
+
+            ResultSet rs = pst.executeQuery();
+            boolean found=false;
+            while(rs.next()){
+                JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString(2));
+                h.customerEmail=rs.getString(1);
+                h.customerName=rs.getString(2);
+                h.customerContactNo=rs.getString(3);
+                h.customerNameLabel.setText(h.customerName);
+                h.seeMovieMenu(h);
+                h.checkLoginStatus(h);
+                found=true;
+            }
+            if(!found)
+                JOptionPane.showMessageDialog(null, "Credentials not found.");
+        }
+        catch (Exception x){
+            System. out.println(x.getMessage());
+        }
     }
 }
 

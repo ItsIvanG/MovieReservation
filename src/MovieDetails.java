@@ -288,12 +288,16 @@ public class MovieDetails {
         confirmButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(!selectedSeats.isEmpty()){
+                if (!h.customerEmail.isEmpty()) {
+                    if(!selectedSeats.isEmpty()){
                     h.purchasingSeats = selectedSeats;
                     h.selectedShowID = ShowID;
                     h.confirmPurchaseScreen(h);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Please select atleast one seat!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please select atleast one seat!");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(null, "Please log in!");
                 }
             }
         });

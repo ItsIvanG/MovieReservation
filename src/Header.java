@@ -17,12 +17,14 @@ public class Header {
     public String movieCode;
     public String customerEmail="bianca.santos.a@bulsu.edu.ph";
     public String customerName;
+    public String customerContactNo;
 
     public List<String> purchasingSeats=new ArrayList<String>();
     public int selectedShowID;
     public Header() {
 
         Header h = this;
+        customerNameLabel.setText(customerEmail);
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -47,7 +49,7 @@ public class Header {
                 customerEmail="";
                 customerName="";
                 customerNameLabel.setText("");
-                checkLoginStatus();
+                checkLoginStatus(h);
             }
         });
         myTicketsButton.addActionListener(new ActionListener() {
@@ -61,7 +63,7 @@ public class Header {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         Header h = new Header();
-        h.checkLoginStatus();
+        h.checkLoginStatus(h);
         frame.setSize(1000,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("Now Showing");
@@ -70,7 +72,9 @@ public class Header {
         frame.setContentPane(h.panel);
         h.contentPanel.setLayout(new GridLayout(0,1));
 
-        h.contentPanel.add(new MovieMenu(h).panel);
+        h.contentPanel.add(new MovieMenuScroll(h).scrollPane);
+        h.contentPanel.revalidate();
+        h.contentPanel.repaint();
 
     }
 
@@ -83,17 +87,18 @@ public class Header {
 
     public void seeMovieMenu(Header h){
         h.contentPanel.remove(0);
-        h.contentPanel.add(new MovieMenu(h).panel);
+        h.contentPanel.add(new MovieMenuScroll(h).scrollPane);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
     }
 
-    public void checkLoginStatus(){
+    public void checkLoginStatus(Header h){
         if(customerEmail.equals("")){
             signOutButton.setVisible(false);
             myTicketsButton.setVisible(false);
             signInButton.setVisible(true);
             registerButton.setVisible(true);
+            seeMovieMenu(h);
         } else{
             signOutButton.setVisible(true);
             myTicketsButton.setVisible(true);

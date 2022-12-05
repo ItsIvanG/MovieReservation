@@ -3,6 +3,7 @@ import java.awt.*;
 import java.sql.*;
 public class MovieMenu {
     JPanel panel = new JPanel();
+
 //    JFrame frame = new JFrame();
     public Header h;
     public MovieMenu(Header x) {

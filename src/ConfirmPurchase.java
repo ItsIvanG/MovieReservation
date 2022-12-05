@@ -133,10 +133,11 @@ public class ConfirmPurchase {
 
                     for (String seats:
                          i) {
-                        pst = conn.prepareStatement("insert into ticket(seat_id,show_id,payment_id) values (?,?,?)");
+                        pst = conn.prepareStatement("insert into ticket(seat_id,show_id,payment_id,ticket_price) values (?,?,?,?)");
                         pst.setString(1,seats);
                         pst.setString(2, Integer.toString(ShowID));
                         pst.setString(3,Integer.toString(paymentID));
+                        pst.setString(4,Double.toString(moviePrice*cinemaRate));
                         pst.execute();
                     }
                     JOptionPane.showMessageDialog(null, "Purchase success.");
