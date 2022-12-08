@@ -95,7 +95,7 @@ public class Header {
 
     }
 
-    public void seeMovieDetails(String m, Header h){
+    public void seeMovieDetails( Header h){
         h.contentPanel.remove(0);
         h.contentPanel.add(new MovieDetails(movieCode,h).panel);
         h.contentPanel.revalidate();

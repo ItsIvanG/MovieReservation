@@ -96,7 +96,7 @@ public class ConfirmPurchase {
         backButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                h.seeMovieDetails(m,h);
+                h.seeMovieDetails(h);
             }
         });
         confirmButton.addActionListener(new ActionListener() {

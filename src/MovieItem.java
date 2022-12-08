@@ -8,6 +8,7 @@ public class MovieItem{
     private JLabel movieDesc;
     public JPanel movieItemPanel;
     private JLabel movieCodeLabel;
+    private JLabel moviePhoto;
 
     public Header h;
     public MovieItem(String a, String b, String m, Header x){
@@ -23,7 +24,7 @@ public class MovieItem{
                 System.out.println("Clicked on "+movieTitle.getText());
                 h.movieCode = movieCodeLabel.getText();
                 System.out.println("Current movie code: "+h.movieCode);
-                h.seeMovieDetails(movieCodeLabel.getText(),h);
+                h.seeMovieDetails(h);
             }
         });
     }

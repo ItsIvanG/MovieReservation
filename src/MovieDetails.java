@@ -22,6 +22,7 @@ public class MovieDetails {
     private JLabel ticketPriceLabel;
     private JLabel timeLabel;
     private JLabel priceLabel;
+    private JLabel moviePhoto;
 
     public String movieCode;
 
