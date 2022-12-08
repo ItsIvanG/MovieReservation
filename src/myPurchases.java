@@ -85,7 +85,7 @@ public class myPurchases {
                                 PreparedStatement pstMovie = conn.prepareStatement("select * from movie where movie_id=?");
                                 timeLabel.setText("Show date/time: "+dateTimeConvert.toShortDate(rsShow.getDate("show_Date"))+" "+dateTimeConvert.toShortTime(rsShow.getTime("show_time")));
                                 pstMovie.setString(1,rsShow.getString("movie_id"));
-                                System.out.println("success");
+
                                 ResultSet rsMovie = pstMovie.executeQuery();
                                 while(rsMovie.next()){
                                     movieLabel.setText("Movie: "+rsMovie.getString("movie_name"));

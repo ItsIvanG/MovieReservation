@@ -58,7 +58,7 @@ public class MovieDetails {
 //            String sql = "Select * from movie";
             ResultSet rs = sql.executeQuery();
             while(rs.next()){
-
+                moviePhoto.setIcon(new ImageIcon(rs.getString("movie_poster")));
                 movieTitle.setText(rs.getString(2));
                 movieDesc.setText("<html>"+rs.getString(3)+"</html>");
                 moviePrice=rs.getDouble("movie_price");

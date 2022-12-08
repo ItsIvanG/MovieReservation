@@ -1,6 +1,9 @@
+
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 public class MovieItem{
     private JLabel movieTitle;
@@ -11,12 +14,15 @@ public class MovieItem{
     private JLabel moviePhoto;
 
     public Header h;
-    public MovieItem(String a, String b, String m, Header x){
+    public MovieItem(String a, String b, String m, Header x, String photo){
         h = x;
+        System.out.println("PHOTO: "+photo);
 
+        ImageIcon img = new ImageIcon(photo);
         movieTitle.setText(a);
         movieDesc.setText(b);
         movieCodeLabel.setText(m);
+        moviePhoto.setIcon(img);
 
         openMovie.addActionListener(new ActionListener() {
             @Override
@@ -25,6 +31,7 @@ public class MovieItem{
                 h.movieCode = movieCodeLabel.getText();
                 System.out.println("Current movie code: "+h.movieCode);
                 h.seeMovieDetails(h);
+
             }
         });
     }

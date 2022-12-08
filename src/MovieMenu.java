@@ -32,7 +32,7 @@ public class MovieMenu {
 
             while(rs.next()){
 
-                panel.add(new MovieItem(rs.getString(2),"<html>"+rs.getString(3)+"</html>",rs.getString(1), h).movieItemPanel);
+                panel.add(new MovieItem(rs.getString(2),"<html>"+rs.getString(3)+"</html>",rs.getString(1), h,rs.getString("movie_poster")).movieItemPanel);
                 System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
 
             }
