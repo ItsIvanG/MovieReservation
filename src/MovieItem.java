@@ -16,13 +16,10 @@ public class MovieItem{
     public Header h;
     public MovieItem(String a, String b, String m, Header x, String photo){
         h = x;
-        System.out.println("PHOTO: "+photo);
-
-        ImageIcon img = new ImageIcon(photo);
         movieTitle.setText(a);
         movieDesc.setText(b);
         movieCodeLabel.setText(m);
-        moviePhoto.setIcon(img);
+        moviePhoto.setText("<html><img src=\"file:"+photo+"\" width=220 height=317></html>");
 
         openMovie.addActionListener(new ActionListener() {
             @Override

@@ -14,19 +14,27 @@ public class Header {
     private JButton signOutButton;
     private JButton myTicketsButton;
     private JButton myPurchasesButton;
+    private JButton manageMoviesButton;
+    private JButton manageShowsButton;
+    private JButton manageHallsButton;
 
     public String movieCode;
-    public String customerEmail="bianca.santos.a@bulsu.edu.ph";
+    public String customerEmail="";
     public String customerName;
     public String customerContactNo;
 
     public List<String> purchasingSeats=new ArrayList<String>();
     public int selectedShowID;
+    public boolean isAdmin=false;
+    public JFrame frame;
     public Header() {
 
 
         Header h = this;
-        customerNameLabel.setText(customerEmail);
+
+        Login loginstart = new Login(h);
+        loginstart.tryLogin(h, "test","test");
+
         registerButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,6 +74,24 @@ public class Header {
                 seePurchases(h);
             }
         });
+        manageMoviesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                seeMovieManager();
+            }
+        });
+        manageShowsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                h.seeShowManager();
+            }
+        });
+        manageHallsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                h.seeHallManager();
+            }
+        });
     }
 
     public static void main(String[] args) {
@@ -77,21 +103,24 @@ public class Header {
                IllegalAccessException e) {
             System.out.println(e.getMessage());
         }
-
-        JFrame frame = new JFrame();
         Header h = new Header();
+        h.frame = new JFrame();
+
+
         h.checkLoginStatus(h);
-        frame.setSize(1000,800);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setTitle("Now Showing");
-        frame.setVisible(true);
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setContentPane(h.panel);
+
+        h.frame.setSize(1000,800);
+        h.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        h.frame.setTitle("Now Showing");
+        h.frame.setVisible(true);
+        h.frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        h.frame.setContentPane(h.panel);
         h.contentPanel.setLayout(new GridLayout(0,1));
 
         h.contentPanel.add(new MovieMenuScroll(h).scrollPane);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
+
 
     }
 
@@ -116,13 +145,21 @@ public class Header {
             signInButton.setVisible(true);
             registerButton.setVisible(true);
             myPurchasesButton.setVisible(false);
-            seeMovieMenu(h);
         } else{
             signOutButton.setVisible(true);
             myTicketsButton.setVisible(true);
             signInButton.setVisible(false);
             registerButton.setVisible(false);
             myPurchasesButton.setVisible(true);
+        }
+        if(isAdmin){
+            manageHallsButton.setVisible(true);
+            manageMoviesButton.setVisible(true);
+            manageShowsButton.setVisible(true);
+        }else{
+            manageHallsButton.setVisible(false);
+            manageMoviesButton.setVisible(false);
+            manageShowsButton.setVisible(false);
         }
     }
 
@@ -145,6 +182,25 @@ public class Header {
         h.contentPanel.add(new myPurchases(h, customerEmail).panel);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
+    }
+
+    public void seeMovieManager(){
+        this.contentPanel.remove(0);
+        this.contentPanel.add(new MovieManage(this).panel);
+        this.contentPanel.revalidate();
+        this.contentPanel.repaint();
+    }
+    public void seeShowManager(){
+        this.contentPanel.remove(0);
+        this.contentPanel.add(new ShowManage(this).panel);
+        this.contentPanel.revalidate();
+        this.contentPanel.repaint();
+    }
+    public void seeHallManager(){
+        this.contentPanel.remove(0);
+        this.contentPanel.add(new HallManager(this).panel);
+        this.contentPanel.revalidate();
+        this.contentPanel.repaint();
     }
 }
 

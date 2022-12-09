@@ -23,6 +23,8 @@ public class MovieDetails {
     private JLabel timeLabel;
     private JLabel priceLabel;
     private JLabel moviePhoto;
+    private JLabel selectedSeatsVisibleLabel;
+    private JLabel movieDurationLabel;
 
     public String movieCode;
 
@@ -46,26 +48,25 @@ public class MovieDetails {
     public MovieDetails(String a, Header h){
         head=h;
         movieCode=a;
+        selectedSeatsLabel.setVisible(false);
 
 
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-//            Statement st = conn.createStatement();
             // GET MOVIE DETAILS
             PreparedStatement sql = conn.prepareStatement("Select * from movie where movie_id=?");
             sql.setString(1,movieCode);
-//            String sql = "Select * from movie";
             ResultSet rs = sql.executeQuery();
             while(rs.next()){
-                moviePhoto.setIcon(new ImageIcon(rs.getString("movie_poster")));
+                moviePhoto.setText("<html><img src=\"file:"+rs.getString("movie_poster")+"\" width=220 height=317></html>");
                 movieTitle.setText(rs.getString(2));
                 movieDesc.setText("<html>"+rs.getString(3)+"</html>");
                 moviePrice=rs.getDouble("movie_price");
+                movieDurationLabel.setText(dateTimeConvert.minutesToHours(rs.getInt("duration_minutes")));
                 System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4));
             }
             // GET SHOW DATES
-//             sql = "Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id='"+movieCode+"'";
             sql = conn.prepareStatement("Select distinct show_date from show_time where movie_id=?");
             sql.setString(1,movieCode);
             rs = sql.executeQuery();
@@ -73,12 +74,6 @@ public class MovieDetails {
                 dateList.add(rs.getString(1));
                 dateBox.addItem(dateTimeConvert.toShortDate(rs.getDate(1)));
             }
-//            sql = conn.prepareStatement("Select distinct FORMAT(show_date, 'Short Date') from show_time where movie_id=?");
-//            sql.setString(1,movieCode);
-//            rs = sql.executeQuery();
-//            while(rs.next()){
-//                dateBox.addItem(rs.getString(1));
-//            }
             System.out.println(dateList);
         } catch (Exception e){
             System. out.println(e.getMessage());
@@ -99,7 +94,6 @@ public class MovieDetails {
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-//                    Statement st = conn.createStatement();
                     PreparedStatement sql = conn.prepareStatement("Select distinct show_time from show_time where movie_id=? and show_date=?");
                     sql.setString(1,movieCode);
                     sql.setString(2,dateList.get(dateBox.getSelectedIndex()));
@@ -110,20 +104,6 @@ public class MovieDetails {
                         timeBox.addItem(dateTimeConvert.toShortTime(rs.getTime(1)));
 
                     }
-//                    timeLabel.setText("");  --------- TIME PARSE DEBUG LABEL
-//                    for (String x:
-//                         timeList) {
-//                        timeLabel.setText(timeLabel.getText()+" "+x);
-//                    }
-//                    sql = conn.prepareStatement("Select distinct FORMAT(show_time, 'Medium Time') from show_time where movie_id=? and show_date=?");
-//                    sql.setString(1,movieCode);
-//                    sql.setString(2,dateList.get(dateBox.getSelectedIndex()));
-////                    sql = "Select show_time from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"'";
-//                    rs = sql.executeQuery();
-//                    while(rs.next()){
-//                        timeBox.addItem(rs.getString(1));
-////                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
-//                    }
                 }catch (Exception x){
                     System. out.println(x.getMessage());
                 }
@@ -142,61 +122,28 @@ public class MovieDetails {
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-//                    Statement st = conn.createStatement();
                     PreparedStatement pst = conn.prepareStatement("Select cinema_hall from show_time where movie_id=? and show_date=? and show_time=?");
                     pst.setString(1,movieCode);
                     pst.setString(2,dateList.get(dateBox.getSelectedIndex()) );
                     pst.setString(3, timeList.get(timeBox.getSelectedIndex()));
-//                    Statement stCinemaHall = conn.createStatement();
-//                    String sql = "Select cinema_hall from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
                     ResultSet rs = pst.executeQuery();
-                    ResultSet rsCinemaHall;
+
                     while(rs.next()){
                         hallList.add(rs.getString(1));
-                        //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
                         /////////////list to box w description
                         System.out.println("LAST CINEMA HALL ADDED: "+hallList.get(hallList.size()-1));
 //                        String getCinemaDescCommand = "Select cinema_description from cinema_room where cinema_hall='"+hallList.get(hallList.size()-1)+"'";
                         PreparedStatement pstCinemaHall = conn.prepareStatement("Select cinema_description from cinema_room where cinema_hall=?");
                         pstCinemaHall.setString(1, hallList.get(hallList.size()-1));
-                        rsCinemaHall = pstCinemaHall.executeQuery();
+                        ResultSet rsCinemaHall = pstCinemaHall.executeQuery();
                         while(rsCinemaHall.next()){
                             hallBox.addItem(rsCinemaHall.getString(1));
-                            //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
                         }
                     }
                     System.out.println(hallList);
                 }catch (Exception x){
                     System. out.println(x.getMessage());
                 }
-//                try{
-//                    Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-//                    Connection conn = DriverManager.getConnection("jdbc:ucanaccess://src\\MovieReserv.accdb");
-//                    Statement st = conn.createStatement();
-//
-//                    String sql = "Select cinema_hall from show_time where movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
-//                    ResultSet rs = st.executeQuery(sql);
-//
-//                    while(rs.next()){
-//                        hallList.add(rs.getString(1));
-//                        //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
-//                        /////////////list to box w description
-//                        System.out.println("LAST CINEMA HALL ADDED: "+hallList.get(hallList.size()-1));
-//                         sql = "Select cinema_description from cinema_room where cinema_hall='"+hallList.get(hallList.size()-1)+"'";
-//
-//                        rs = st.executeQuery(sql);
-//                        while(rs.next()){
-//                            hallBox.addItem(rs.getString(1));
-//                            //                System.out.println("\n"+rs.getString(1)+"\t"+rs.getString(2)+"\t"+rs.getString(3)+"\t"+rs.getString(4)+"\t"+rs.getString(5));
-//                        }
-//                    }
-//                    System.out.println(hallList);
-//
-//
-//
-//                }catch (Exception x){
-//                    System. out.println(x.getMessage());
-//                }
             }
         });
         hallBox.addActionListener(new ActionListener() {
@@ -217,17 +164,16 @@ public class MovieDetails {
                         rateAdd = rs.getDouble(1);
                     }
 
-                    ticketPriceLabel.setText("Ticket price: "+moviePrice*rateAdd);
+                    ticketPriceLabel.setText("Ticket price: ₱"+moviePrice*rateAdd);
 
 
                     sql = conn.prepareStatement("Select * from cinema_room where cinema_hall=?");
                     sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
-                    //"Select * from cinema_room where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"'"
                     rs = sql.executeQuery();
                     while(rs.next()){
 
-                        noOfSeats=rs.getInt(3);
-                        seatsPerRow=rs.getInt(5);
+                        noOfSeats=rs.getInt("no_of_seats");
+                        seatsPerRow=rs.getInt("seatsperrow");
                     }
                     System.out.println("SELECTED CINEMA: "+hallList.get(hallBox.getSelectedIndex())+" WHERE NO. OF SEATS: "+noOfSeats+" AND SEATSPERROW: "+seatsPerRow);
                     seatsPanel.removeAll();
@@ -241,7 +187,6 @@ public class MovieDetails {
                     sql.setString(2,movieCode);
                     sql.setString(3,dateList.get(dateBox.getSelectedIndex()));
                     sql.setString(4,timeList.get(timeBox.getSelectedIndex()));
-//                     sql = "Select show_id from show_time where cinema_hall='"+hallList.get(hallBox.getSelectedIndex())+"' and movie_id='"+movieCode+"' and show_date='"+dateList.get(dateBox.getSelectedIndex())+"' and show_time='"+timeList.get(timeBox.getSelectedIndex())+"'";
                     rs = sql.executeQuery();
                     while(rs.next()){
 
@@ -263,7 +208,7 @@ public class MovieDetails {
                 int currentSeatReset=0;
                 while(currentSeat<noOfSeats){
                     String seatIDdebug = rowCodes[currentRow]+(currentSeatReset+1);
-                    seatsPanel.add(new SeatButton(seatIDdebug,m, ShowID).panel);
+                    seatsPanel.add( new SeatButton(seatIDdebug,m, ShowID).panel);
                     System.out.println(seatIDdebug+" added");
                     currentSeat++;
                     currentSeatReset++;
@@ -306,22 +251,24 @@ public class MovieDetails {
     public void addSeatToCart(String seatID){
         System.out.println("ADDED TO CART, SEATiD: "+seatID);
         selectedSeats.add(seatID);
-        selectedSeatsLabel.setText("Selected seats: ");
+        selectedSeatsLabel.setText("");
         for (String x:
                 selectedSeats) {
             selectedSeatsLabel.setText(selectedSeatsLabel.getText()+x+", ");
         }
+        selectedSeatsVisibleLabel.setText("<html>Selected seats: "+selectedSeatsLabel.getText()+"</html>");
         caluclatePrice();
 
     }
     public void removeSeatFromCart(String seatID){
         System.out.println("REMOVED FROM CART, SEATiD: "+seatID);
         selectedSeats.remove(seatID);
-        selectedSeatsLabel.setText("Selected seats: ");
+        selectedSeatsLabel.setText("");
         for (String x:
                 selectedSeats) {
             selectedSeatsLabel.setText(selectedSeatsLabel.getText()+x+", ");
         }
+        selectedSeatsVisibleLabel.setText("<html>Selected seats: "+selectedSeatsLabel.getText()+"</html>");
         caluclatePrice();
 
     }
@@ -329,7 +276,7 @@ public class MovieDetails {
     public void caluclatePrice(){
         ////calculate price
         ticketsTotalPrice = selectedSeats.size()*(moviePrice*rateAdd);
-        priceLabel.setText("Total price: "+ticketsTotalPrice);
+        priceLabel.setText("Total price: ₱"+ticketsTotalPrice);
 
     }
 

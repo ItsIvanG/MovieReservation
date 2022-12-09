@@ -45,7 +45,7 @@ public class myTickets {
         try { //// GET TICKETS
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("select * from payment where customeremail=?");
+            PreparedStatement pst = conn.prepareStatement("select * from payment where account_email=?");
             pst.setString(1,email);
             ResultSet rs = pst.executeQuery();
             System.out.println("rs success");
@@ -133,7 +133,7 @@ public class myTickets {
 
                 ticketIDLabel.setText("Ticket ID: "+ticketIDs.get(ticketList.getSelectedIndex()));
                 ticketPurchaseIDlabel.setText("Purchase ID: "+ticketsPurchaseIDs.get(ticketList.getSelectedIndex()));
-                ticketPriceLabel.setText("Ticket Price: "+ticketsPrices.get(ticketList.getSelectedIndex()));
+                ticketPriceLabel.setText("Ticket Price: ₱"+ticketsPrices.get(ticketList.getSelectedIndex()));
 
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");

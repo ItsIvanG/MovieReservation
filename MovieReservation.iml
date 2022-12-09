@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="net.sf.ucanaccess" level="project" />
+    <orderEntry type="library" name="jdatepicker" level="project" />
   </component>
 </module>

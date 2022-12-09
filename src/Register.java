@@ -67,7 +67,7 @@ public class Register {
                 try{ //INSERT TO CUSTOMER RECORD
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
                     Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-                    PreparedStatement pst = conn.prepareStatement("INSERT INTO CUSTOMER(customer_email,customer_name,customer_mobileno,password) VALUES (?,?,?,?)");
+                    PreparedStatement pst = conn.prepareStatement("INSERT INTO account(account_email,account_name,account_mobileno,password) VALUES (?,?,?,?)");
                     pst.setString(1,emailField.getText());
                     pst.setString(2,fullnameField.getText());
                     pst.setString(3,contactnoField.getText());

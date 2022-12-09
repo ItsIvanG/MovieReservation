@@ -125,7 +125,7 @@ public class ConfirmPurchase {
                     LocalDateTime now = LocalDateTime.now();
                     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-                    pst = conn.prepareStatement("insert into payment(payment_id,payment_datetime,mode_of_payment,payment_amount,customeremail) values (?,?,?,?,?)");
+                    pst = conn.prepareStatement("insert into payment(payment_id,payment_datetime,mode_of_payment,payment_amount,account_email) values (?,?,?,?,?)");
                     pst.setString(1,Integer.toString(paymentID));
                     System.out.println("Adding current date: "+dtf.format(now));
                     pst.setString(2,dtf.format(now));

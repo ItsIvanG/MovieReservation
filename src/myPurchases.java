@@ -33,7 +33,7 @@ public class myPurchases {
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("select * from payment where customeremail=?");
+            PreparedStatement pst = conn.prepareStatement("select * from payment where account_email=?");
             pst.setString(1, email);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
@@ -66,7 +66,7 @@ public class myPurchases {
                         purchaseIDLabel.setText("Purchase ID: "+purchaseIDs.get(purchaseList.getSelectedIndex()));
                         purchaseDateLabel.setText("Purchase Date: "+dateTimeConvert.toShortDate(rs.getDate("payment_datetime")));
                         purchaseMethodLabel.setText("Purchase Method: "+rs.getString("mode_of_payment"));
-                        totalPriceLabel.setText("Total Price: "+rs.getString("payment_amount"));
+                        totalPriceLabel.setText("Total Price: ₱"+rs.getString("payment_amount"));
 
                         PreparedStatement pstTickets = conn.prepareStatement("select * from ticket where payment_id=?");
 

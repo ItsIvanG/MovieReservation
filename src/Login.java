@@ -25,24 +25,24 @@ public class Login {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tryLogin(h);
+                tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
             }
         });
         passwordField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tryLogin(h);
+                tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
             }
         });
     }
-    public void tryLogin(Header h){
-        System.out.println("Attempting login "+emailField.getText()+" | "+new String(passwordField.getPassword()));
+    public void tryLogin(Header h,String email, String pass){
+        System.out.println("Attempting login "+email+" | "+pass);
         try{
-            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+//            Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("Select * from customer where customer_email=? and password=?");
-            pst.setString(1, emailField.getText());
-            pst.setString(2, new String(passwordField.getPassword()));
+            PreparedStatement pst = conn.prepareStatement("Select * from account where account_email=? and password=?");
+            pst.setString(1, email);
+            pst.setString(2, pass);
 
             ResultSet rs = pst.executeQuery();
             boolean found=false;
@@ -52,8 +52,11 @@ public class Login {
                 h.customerName=rs.getString(2);
                 h.customerContactNo=rs.getString(3);
                 h.customerNameLabel.setText(h.customerName);
+                h.isAdmin=rs.getBoolean("admin");
+
                 h.seeMovieMenu(h);
                 h.checkLoginStatus(h);
+
                 found=true;
             }
             if(!found)

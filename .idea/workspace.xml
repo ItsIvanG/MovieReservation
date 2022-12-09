@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="my purchases + movie posters + movie desc fix">
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="posters load url">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jdatepicker.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DateLabelFormatter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HallManager.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/HallManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MovieManage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MovieManage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ShowManage.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/openDialogImg.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utilToSqlDate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieReservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieReservation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieMenuScroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenuScroll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/m1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieReserv.laccdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dateTimeConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dateTimeConvert.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myPurchases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTickets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +71,8 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
     &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;315&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/itsiv/Documents/IntelliJ projects/MovieReservation/src&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
@@ -79,15 +101,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieItem" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MovieItem" />
+    <configuration name="MovieMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MovieMenu" />
       <module name="MovieReservation" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MovieMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MovieMenu" />
+    <configuration name="openDialogImg" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="openDialogImg" />
       <module name="MovieReservation" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -100,10 +122,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Header" />
+        <item itemvalue="Application.openDialogImg" />
         <item itemvalue="Application.MovieMenu" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.commons-lang-2.6.jar" />
-        <item itemvalue="Application.MovieItem" />
       </list>
     </recent_temporary>
   </component>
@@ -312,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670480533265</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="posters load url">
+      <created>1670484507513</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1670484507513</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,7 +405,8 @@
     <MESSAGE value="register error msg" />
     <MESSAGE value="my purchases" />
     <MESSAGE value="my purchases + movie posters + movie desc fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="my purchases + movie posters + movie desc fix" />
+    <MESSAGE value="posters load url" />
+    <option name="LAST_COMMIT_MESSAGE" value="posters load url" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
