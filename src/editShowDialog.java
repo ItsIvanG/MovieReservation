@@ -12,7 +12,7 @@ public class editShowDialog extends JDialog {
     private JComboBox movieCombo;
     private JSpinner hourSpinner;
     private JSpinner minuteSpin;
-    private JComboBox comboBox1;
+    private JComboBox amCombo;
     private List<String> movieList = new ArrayList<>();
     private String defaultMovieCode;
     private String setTime;
@@ -33,6 +33,11 @@ public class editShowDialog extends JDialog {
             pst.setInt(1,showID);
             ResultSet rs = pst.executeQuery();
             while (rs.next()){
+                hourSpinner.setValue(Integer.parseInt(dateTimeConvert.parseHour(rs.getTime("show_time"))));
+                minuteModel.setValue(Integer.parseInt(dateTimeConvert.parseMinute(rs.getTime("show_time"))));
+                if(!dateTimeConvert.parseAM(rs.getTime("show_time")).equalsIgnoreCase("am")){
+                    amCombo.setSelectedIndex(1);
+                }
 //                timeField.setText(dateTimeConvert.toShortTime(rs.getTime("show_time")));
 
                 defaultMovieCode = rs.getString("movie_id");
@@ -54,6 +59,13 @@ public class editShowDialog extends JDialog {
 
         buttonOK.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
+                if(amCombo.getSelectedIndex()==0){
+                    setTime= hourSpinner.getValue() +":"+ minuteSpin.getValue()+":00";
+                } else{
+                    setTime= (Integer.parseInt(hourSpinner.getValue().toString())+12) +":"+ minuteSpin.getValue()+":00";
+                }
+                System.out.println(setTime);
                 try{
                     Connection conn = DriverManager.getConnection(connectionClass.connectionString);
                     PreparedStatement pst = conn.prepareStatement("update show_time set show_time=?, movie_id=? where show_id=?");

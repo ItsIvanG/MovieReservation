@@ -76,7 +76,7 @@ public class ShowManage {
         showPanel.removeAll();
         try{
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("select * from show_time where cinema_hall=? and show_date=?");
+            PreparedStatement pst = conn.prepareStatement("select * from show_time where cinema_hall=? and show_date=? order by show_time");
             pst.setString(1,hallList.get(hallwayCombobox.getSelectedIndex()));
             pst.setString(2, String.valueOf(showDate));
             ResultSet rs = pst.executeQuery();
