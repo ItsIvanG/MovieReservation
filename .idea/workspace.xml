@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="rateAdd remove">
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="show manage">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShowManage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShowManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dateTimeConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dateTimeConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editShowDialog.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/editShowDialog.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editShowDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editShowDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/showItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/showItem.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/showItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/showItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -331,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670774418460</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="show manage">
+      <created>1670779571076</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1670779571076</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,7 +403,8 @@
     <MESSAGE value="my purchases + movie posters + movie desc fix" />
     <MESSAGE value="posters load url" />
     <MESSAGE value="rateAdd remove" />
-    <option name="LAST_COMMIT_MESSAGE" value="rateAdd remove" />
+    <MESSAGE value="show manage" />
+    <option name="LAST_COMMIT_MESSAGE" value="show manage" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

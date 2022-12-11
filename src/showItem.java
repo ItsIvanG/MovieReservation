@@ -11,6 +11,7 @@ public class showItem {
     private JButton EDITButton;
     private JLabel timeLabel;
     private JLabel movieLabel;
+    private JButton DELbutton;
 
     showItem(String time,String movie, ShowManage sm, int showID){
 
@@ -32,6 +33,21 @@ public class showItem {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new editShowDialog(sm, showID).setVisible(true);
+            }
+        });
+        DELbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try{
+                    Connection conn = DriverManager.getConnection(connectionClass.connectionString);
+                    PreparedStatement pst = conn.prepareStatement("delete from show_time where show_id=?");
+                    pst.setInt(1,showID);
+                    pst.execute();
+                    sm.seeShows();
+                }catch (Exception x){
+                    System.out.println(x.getMessage());
+                }
+
             }
         });
     }
