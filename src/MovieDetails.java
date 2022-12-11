@@ -157,19 +157,19 @@ public class MovieDetails {
                     Connection conn = DriverManager.getConnection(connectionClass.connectionString);
 //                    Statement st = conn.createStatement();
                     ///GET CINEMA RATE
-                    PreparedStatement sql = conn.prepareStatement("Select rateAdd from cinema_room where cinema_hall=?");
+//                    PreparedStatement sql = conn.prepareStatement("Select rateAdd from cinema_room where cinema_hall=?");
+//                    sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
+//                    ResultSet rs = sql.executeQuery();
+//                    while(rs.next()){
+//                        rateAdd = rs.getDouble(1);
+//                    }
+
+                    ticketPriceLabel.setText("Ticket price: ₱"+moviePrice);
+
+
+                    PreparedStatement sql = conn.prepareStatement("Select * from cinema_room where cinema_hall=?");
                     sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
                     ResultSet rs = sql.executeQuery();
-                    while(rs.next()){
-                        rateAdd = rs.getDouble(1);
-                    }
-
-                    ticketPriceLabel.setText("Ticket price: ₱"+moviePrice*rateAdd);
-
-
-                    sql = conn.prepareStatement("Select * from cinema_room where cinema_hall=?");
-                    sql.setString(1,hallList.get(hallBox.getSelectedIndex()));
-                    rs = sql.executeQuery();
                     while(rs.next()){
 
                         noOfSeats=rs.getInt("no_of_seats");
@@ -275,7 +275,7 @@ public class MovieDetails {
 
     public void caluclatePrice(){
         ////calculate price
-        ticketsTotalPrice = selectedSeats.size()*(moviePrice*rateAdd);
+        ticketsTotalPrice = selectedSeats.size()*(moviePrice);
         priceLabel.setText("Total price: ₱"+ticketsTotalPrice);
 
     }

@@ -33,7 +33,8 @@ public class Header {
         Header h = this;
 
         Login loginstart = new Login(h);
-        loginstart.tryLogin(h, "test","test");
+        ///------------------------------------/AUTOLOGIN
+        loginstart.tryLogin(h, "ivan.gonzales@gmail.com","ivanpogi");
 
         registerButton.addActionListener(new ActionListener() {
             @Override
@@ -59,7 +60,11 @@ public class Header {
                 customerEmail="";
                 customerName="";
                 customerNameLabel.setText("");
+                customerContactNo="";
+                isAdmin=false;
+
                 checkLoginStatus(h);
+                seeMovieMenu(h);
             }
         });
         myTicketsButton.addActionListener(new ActionListener() {

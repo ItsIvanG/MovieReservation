@@ -9,5 +9,6 @@ public class MovieMenuScroll {
         panel.setLayout(new GridLayout(0,1));
         panel.add(new MovieMenu(h).panel);
         scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
     }
 }

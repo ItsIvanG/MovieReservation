@@ -13,6 +13,7 @@ public class ShowManage {
     private JButton backButton;
     private JPanel datePanelFrame;
     private JComboBox hallwayCombobox;
+    private JPanel showPanel;
     private Date showDate;
     private java.util.List<String> hallList =new ArrayList<>();
     public ShowManage(Header h){
@@ -57,7 +58,38 @@ public class ShowManage {
             public void actionPerformed(ActionEvent e) {
                 showDate = new utilToSqlDate().convertJavaDateToSqlDate((java.util.Date) datePicker.getModel().getValue());
                 System.out.println(showDate.toString());
+                seeShows();
+
+
             }
         });
+        hallwayCombobox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                seeShows();
+            }
+        });
+    }
+
+    void seeShows(){
+        showPanel.setLayout(new GridLayout(0,1));
+        showPanel.removeAll();
+        try{
+            Connection conn = DriverManager.getConnection(connectionClass.connectionString);
+            PreparedStatement pst = conn.prepareStatement("select * from show_time where cinema_hall=? and show_date=?");
+            pst.setString(1,hallList.get(hallwayCombobox.getSelectedIndex()));
+            pst.setString(2, String.valueOf(showDate));
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()){
+                showPanel.add(new showItem(dateTimeConvert.toShortTime(rs.getTime("show_time")),rs.getString("movie_id"), this, rs.getInt("show_id")).panel);
+                System.out.println("added "+rs.getString("show_time"));
+            }
+
+
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        showPanel.revalidate();
+        showPanel.repaint();
     }
 }

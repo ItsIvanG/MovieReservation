@@ -71,7 +71,7 @@ public class ConfirmPurchase {
                 rsCinema = pstCinema.executeQuery();
                 while (rsCinema.next()) {
                     cinemaHallLabel.setText(rsCinema.getString("cinema_description"));
-                    cinemaRate=rsCinema.getDouble("rateAdd");
+//                    cinemaRate=rsCinema.getDouble("rateAdd");
                     System.out.println("CINEMA DESC:____"+rsCinema.getString(1)+"\nRATE: "+cinemaRate);
                 }
             }
@@ -89,7 +89,7 @@ public class ConfirmPurchase {
 
 
         ////calculate price
-        ticketsTotalPrice = i.size()*(moviePrice*cinemaRate);
+        ticketsTotalPrice = i.size()*(moviePrice);
         priceLabel.setText(priceLabel.getText()+ticketsTotalPrice);
         ticketsLabel.setText(ticketsLabel.getText()+i.size()+"x");
 
@@ -141,7 +141,7 @@ public class ConfirmPurchase {
                         pst.setString(1,seats);
                         pst.setString(2, Integer.toString(ShowID));
                         pst.setString(3,Integer.toString(paymentID));
-                        pst.setString(4,Double.toString(moviePrice*cinemaRate));
+                        pst.setString(4,Double.toString(moviePrice));
                         pst.execute();
                     }
                     JOptionPane.showMessageDialog(null, "Purchase success.");

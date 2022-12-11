@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="posters load url">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jdatepicker.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DateLabelFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HallManager.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/HallManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieManage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MovieManage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ShowManage.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/openDialogImg.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilToSqlDate.java" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="fix 0purchase id">
+      <change afterPath="$PROJECT_DIR$/src/editShowDialog.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/editShowDialog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/showItem.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/showItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieReservation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MovieReservation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HallManager.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/HallManager.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HallManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HallManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieDetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieMenuScroll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieMenuScroll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MovieReserv.laccdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dateTimeConvert.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dateTimeConvert.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myPurchases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShowManage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ShowManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myTickets.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTickets.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/myTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTickets.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +102,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="editShowDialog" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="editShowDialog" />
+      <module name="MovieReservation" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="openDialogImg" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="openDialogImg" />
       <module name="MovieReservation" />
@@ -115,17 +116,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="commons-lang-2.6.jar" type="JarApplication" temporary="true">
-      <option name="JAR_PATH" value="$PROJECT_DIR$/../../ACCESSJAVA/commons-lang-2.6.jar!/" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Header" />
+        <item itemvalue="Application.editShowDialog" />
         <item itemvalue="Application.openDialogImg" />
         <item itemvalue="Application.MovieMenu" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JAR Application.commons-lang-2.6.jar" />
       </list>
     </recent_temporary>
   </component>

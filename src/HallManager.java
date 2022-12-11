@@ -75,26 +75,27 @@ public class HallManager {
                 if(hallList.contains(hallcodeField.getText())){
                     try{
                         Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-                        PreparedStatement pst = conn.prepareStatement("update cinema_room set no_of_seats=?,cinema_description=?,seatsperrow=?,rateadd=? where cinema_hall=?");
+                        PreparedStatement pst = conn.prepareStatement("update cinema_room set no_of_seats=?,cinema_description=?,seatsperrow=? where cinema_hall=?");
                         pst.setInt(1, Integer.parseInt(hallNumberOfSeatsField.getText()));
                         pst.setString(2, hallDescField.getText());
                         pst.setInt(3,Integer.parseInt(hallSeatsPerRowField.getText()));
-                        pst.setDouble(4,Double.parseDouble(movieRateField.getText()));
-                        pst.setString(5,hallList.get(hallwayCombobox.getSelectedIndex()));
+//                        pst.setDouble(4,Double.parseDouble(movieRateField.getText()));
+                        pst.setString(4,hallList.get(hallwayCombobox.getSelectedIndex()));
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Cinema hall code already exists! Updating existing record.");
+                        h.seeHallManager();
                     }catch(Exception x){
                         System.out.println(x.getMessage());
                     }
                 }else{
                     try{
                         Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-                        PreparedStatement pst = conn.prepareStatement("insert into cinema_room(cinema_hall,no_of_seats,cinema_description,seatsperrow,rateadd) values(?,?,?,?,?)");
+                        PreparedStatement pst = conn.prepareStatement("insert into cinema_room(cinema_hall,no_of_seats,cinema_description,seatsperrow) values(?,?,?,?)");
                         pst.setString(1, hallcodeField.getText());
                         pst.setInt(2, Integer.parseInt(hallNumberOfSeatsField.getText()));
                         pst.setString(3, hallDescField.getText());
                         pst.setInt(4,Integer.parseInt(hallSeatsPerRowField.getText()));
-                        pst.setDouble(5,Double.parseDouble(movieRateField.getText()));
+//                        pst.setDouble(5,Double.parseDouble(movieRateField.getText()));
                         pst.execute();
                         JOptionPane.showMessageDialog(null, "Cinema hall code does not exist! Inserting new record.");
                         h.seeHallManager();
@@ -135,7 +136,7 @@ public class HallManager {
                 hallDescField.setText(rs.getString("cinema_description"));
                 hallNumberOfSeatsField.setText(rs.getString("no_of_seats"));
                 hallSeatsPerRowField.setText(rs.getString("seatsperrow"));
-                movieRateField.setText(rs.getString("rateadd"));
+//                movieRateField.setText(rs.getString("rateadd"));
                 previewSeats(Integer.parseInt(hallNumberOfSeatsField.getText()),Integer.parseInt(hallSeatsPerRowField.getText()));
             }
 

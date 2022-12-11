@@ -24,6 +24,7 @@ public class myTickets {
     private JLabel ticketPurchaseDateTimeLabel;
     private JLabel ticketPurchaseMethodLabel;
     private JLabel ticketPriceLabel;
+    private JLabel showIDlabel;
     private DefaultListModel<String> ticketListModel = new DefaultListModel<>();
     public List<Integer> ticketIDs=new ArrayList<Integer>();
     public List<String> ticketsMovies=new ArrayList<String>();
@@ -33,6 +34,7 @@ public class myTickets {
     public List<String> ticketsPurchaseIDs=new ArrayList<String>();
     public List<String> ticketsPrices=new ArrayList<String>();
 
+    public List<String> showIDs=new ArrayList<String>();
     public myTickets(Header h, String email){
 
         String movieName="";
@@ -62,6 +64,7 @@ public class myTickets {
                     ticketsPrices.add(rsTicket.getString("ticket_price"));
 
                     ticketIDs.add(rsTicket.getInt(1));
+                    showIDs.add(rsTicket.getString("show_id"));
                     ///// get seat ID
                     seatID=rsTicket.getString("seat_id");
                     ticketsSeats.add(seatID);
@@ -134,6 +137,7 @@ public class myTickets {
                 ticketIDLabel.setText("Ticket ID: "+ticketIDs.get(ticketList.getSelectedIndex()));
                 ticketPurchaseIDlabel.setText("Purchase ID: "+ticketsPurchaseIDs.get(ticketList.getSelectedIndex()));
                 ticketPriceLabel.setText("Ticket Price: ₱"+ticketsPrices.get(ticketList.getSelectedIndex()));
+                showIDlabel.setText("Show ID: "+showIDs.get(ticketList.getSelectedIndex()));
 
                 try{
                     Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
