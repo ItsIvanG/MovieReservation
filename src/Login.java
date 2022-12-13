@@ -12,6 +12,7 @@ public class Login {
     private JButton logInButton;
     public JPanel panel;
     private JButton backButton;
+    private int attempts;
 
     public Login(Header h){
 
@@ -25,13 +26,21 @@ public class Login {
         logInButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
+                if(attempts<3){
+                    tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
+                } else{
+                    JOptionPane.showMessageDialog(null, "Maximum amount of attempts reached. Try again later.","Error",JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
         passwordField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
+                if(attempts<3){
+                    tryLogin(h, emailField.getText(),new String(passwordField.getPassword()));
+                } else{
+                    JOptionPane.showMessageDialog(null, "Maximum amount of attempts reached. Try again later.","Error",JOptionPane.ERROR_MESSAGE);
+                }
             }
         });
     }
@@ -53,14 +62,17 @@ public class Login {
                 h.customerContactNo=rs.getString(3);
                 h.customerNameLabel.setText(h.customerName);
                 h.isAdmin=rs.getBoolean("admin");
+                h.accountid=rs.getString("account_id");
 
                 h.seeMovieMenu(h);
                 h.checkLoginStatus(h);
 
                 found=true;
             }
-            if(!found)
-                JOptionPane.showMessageDialog(null, "Credentials not found.");
+            if(!found){
+                attempts++;
+                JOptionPane.showMessageDialog(null, "Credentials not found. Attempt "+attempts+"/3.","Error",JOptionPane.ERROR_MESSAGE);
+            }
         }
         catch (Exception x){
             System. out.println(x.getMessage());

@@ -35,7 +35,7 @@ public class myTickets {
     public List<String> ticketsPrices=new ArrayList<String>();
 
     public List<String> showIDs=new ArrayList<String>();
-    public myTickets(Header h, String email){
+    public myTickets(Header h, String accountid){
 
         String movieName="";
         String cinemaHall="";
@@ -47,8 +47,8 @@ public class myTickets {
         try { //// GET TICKETS
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("select * from payment where account_email=?");
-            pst.setString(1,email);
+            PreparedStatement pst = conn.prepareStatement("select * from payment where account_id=?");
+            pst.setString(1,accountid);
             ResultSet rs = pst.executeQuery();
             System.out.println("rs success");
             while (rs.next()) {

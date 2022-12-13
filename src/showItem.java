@@ -1,10 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.*;
 
 public class showItem {
     public JPanel panel;
@@ -13,9 +10,10 @@ public class showItem {
     private JLabel movieLabel;
     private JButton DELbutton;
 
-    showItem(String time,String movie, ShowManage sm, int showID){
+    showItem(Time time,String movie, ShowManage sm, int showID){
 
-        timeLabel.setText(time);
+        timeLabel.setText(dateTimeConvert.toShortTime(time));
+        System.out.println(showID+": "+ time);
 
         try{
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);

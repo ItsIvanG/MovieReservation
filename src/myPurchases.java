@@ -27,14 +27,14 @@ public class myPurchases {
     private List<Integer> purchaseIDs = new ArrayList<>();
     private List<String> seats = new ArrayList<>();
 
-    public myPurchases(Header h,String email){
+    public myPurchases(Header h,String accountid){
         purchaseList.setModel(purchaseListModel);
 
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
             Connection conn = DriverManager.getConnection(connectionClass.connectionString);
-            PreparedStatement pst = conn.prepareStatement("select * from payment where account_email=?");
-            pst.setString(1, email);
+            PreparedStatement pst = conn.prepareStatement("select * from payment where account_id=?");
+            pst.setString(1, accountid);
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
                 purchaseListModel.addElement(dateTimeConvert.toShortDate(rs.getDate("payment_datetime"))+" ("+rs.getString("payment_Id")+")");

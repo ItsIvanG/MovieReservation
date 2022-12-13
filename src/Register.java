@@ -21,6 +21,7 @@ public class Register {
     private JLabel requiredMsg;
     private Header h;
     private boolean passwordValid=false;
+
     public Register(Header hhh){
         h=hhh;
         backButton.addActionListener(new ActionListener() {
@@ -72,8 +73,6 @@ public class Register {
                     pst.setString(2,fullnameField.getText());
                     pst.setString(3,contactnoField.getText());
                     pst.setString(4,new String(passwordField.getPassword()));
-                    //OLD WAY v
-//                    String sql = "INSERT INTO CUSTOMER(customer_name,customer_mobileno,customer_email,password) VALUES ('"+fullnameField.getText()+"','"+contactnoField.getText()+"','"+emailField.getText()+"','"+new String(passwordField.getPassword())+"')";
                     pst.execute();
                     JOptionPane.showMessageDialog(null, "Account successfuly registered! Please log in.");
                     hhh.seeMovieMenu(hhh);
@@ -83,7 +82,7 @@ public class Register {
                 catch (Exception x){
                     System. out.println(x.getMessage());
                     if(x.getMessage().startsWith("UCAExc:::5.0.1 integrity constraint violation: unique constraint or index violation"))
-                        JOptionPane.showMessageDialog(null, "Error registering. E-mail already exists!");
+                        JOptionPane.showMessageDialog(null, "Error registering. E-mail already exists!","Error",JOptionPane.ERROR_MESSAGE);
                 }
             }
         });

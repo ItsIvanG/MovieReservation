@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="show manage">
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="hall manager&#10;movie manager&#10;show manager&#10;movie details cleanup">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ShowManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myPurchases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTickets.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/showItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/showItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

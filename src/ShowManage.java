@@ -105,7 +105,7 @@ public class ShowManage {
             pst.setString(2, String.valueOf(showDate));
             ResultSet rs = pst.executeQuery();
             while(rs.next()){
-                showPanel.add(new showItem(dateTimeConvert.toShortTime(rs.getTime("show_time")),rs.getString("movie_id"), this, rs.getInt("show_id")).panel);
+                showPanel.add(new showItem(rs.getTime("show_time"),rs.getString("movie_id"), this, rs.getInt("show_id")).panel);
                 System.out.println("added "+rs.getString("show_time"));
 
             }

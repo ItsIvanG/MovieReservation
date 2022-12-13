@@ -27,6 +27,7 @@ public class Header {
     public int selectedShowID;
     public boolean isAdmin=false;
     public JFrame frame;
+    public String accountid;
     public Header() {
 
 
@@ -61,6 +62,7 @@ public class Header {
                 customerName="";
                 customerNameLabel.setText("");
                 customerContactNo="";
+                accountid="";
                 isAdmin=false;
 
                 checkLoginStatus(h);
@@ -177,14 +179,14 @@ public class Header {
 
     public void seeTickets(Header h){
         h.contentPanel.remove(0);
-        h.contentPanel.add(new myTickets(h, customerEmail).panel);
+        h.contentPanel.add(new myTickets(h, accountid).panel);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
     }
 
     public void seePurchases(Header h){
         h.contentPanel.remove(0);
-        h.contentPanel.add(new myPurchases(h, customerEmail).panel);
+        h.contentPanel.add(new myPurchases(h, accountid).panel);
         h.contentPanel.revalidate();
         h.contentPanel.repaint();
     }
