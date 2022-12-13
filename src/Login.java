@@ -56,7 +56,7 @@ public class Login {
             ResultSet rs = pst.executeQuery();
             boolean found=false;
             while(rs.next()){
-//                JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString(2));
+                JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString(2));
                 h.customerEmail=rs.getString(1);
                 h.customerName=rs.getString(2);
                 h.customerContactNo=rs.getString(3);

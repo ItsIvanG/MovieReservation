@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="hall manager&#10;movie manager&#10;show manager&#10;movie details cleanup">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="accountID">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConfirmPurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConfirmPurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Header.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Header.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieItem.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieItem.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieManage.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieManage.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MovieManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieManage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Register.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myPurchases.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/myTickets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/myTickets.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/showItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/showItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,26 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW&quot;: &quot;true&quot;,
-    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;315&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/itsiv/Documents/IntelliJ projects/MovieReservation/src&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "UI_DESIGNER_EDITOR_MODE.PaletteManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW": "true",
+    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "283",
+    "last_opened_file_path": "C:/Users/itsiv/Documents/IntelliJ projects/MovieReservation/src",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\itsiv\Documents\IntelliJ projects\MovieReservation\src" />
@@ -349,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670780869354</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="accountID">
+      <created>1670913805400</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1670913805400</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -416,7 +418,8 @@
     <MESSAGE value="posters load url" />
     <MESSAGE value="rateAdd remove" />
     <MESSAGE value="show manage" />
-    <option name="LAST_COMMIT_MESSAGE" value="show manage" />
+    <MESSAGE value="accountID" />
+    <option name="LAST_COMMIT_MESSAGE" value="accountID" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
