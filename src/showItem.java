@@ -30,7 +30,7 @@ public class showItem {
         EDITButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new editShowDialog(sm, showID).setVisible(true);
+                new editShowDialog(sm, showID, false).setVisible(true);
             }
         });
         DELbutton.addActionListener(new ActionListener() {
@@ -44,6 +44,9 @@ public class showItem {
                     sm.seeShows();
                 }catch (Exception x){
                     System.out.println(x.getMessage());
+                    if(x.getMessage().startsWith("UCAExc:::5.0.1 integrity constraint violation: foreign key no action;")){
+                        JOptionPane.showMessageDialog(null, "Show time already has tickets registered and cannot be deleted.","Error",JOptionPane.ERROR_MESSAGE);
+                    }
                 }
 
             }

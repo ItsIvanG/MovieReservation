@@ -16,7 +16,9 @@ public class editShowDialog extends JDialog {
     private List<String> movieList = new ArrayList<>();
     private String defaultMovieCode;
     private String setTime;
-    public editShowDialog(ShowManage sm, int showID) {
+    private int thisShowID;
+    public editShowDialog(ShowManage sm, int showID, boolean isNew) {
+        thisShowID=showID;
         SpinnerModel hourModel = new SpinnerNumberModel(1, 1, 12, 1);
         SpinnerModel minuteModel = new SpinnerNumberModel(0, 0, 60, 1);
         showIDlabel.setText("Edit Show ID: "+showID);
@@ -73,6 +75,7 @@ public class editShowDialog extends JDialog {
                     pst.setString(2,movieList.get(movieCombo.getSelectedIndex()));
                     pst.setInt(3,showID);
                     pst.execute();
+                    System.out.println("EDITED SHOWID "+showID+" TO TIME "+setTime+" MOVIE "+movieList.get(movieCombo.getSelectedIndex()));
                 } catch (Exception x){
                     System.out.println(x.getMessage());
                 }
@@ -83,7 +86,7 @@ public class editShowDialog extends JDialog {
 
         buttonCancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                onCancel(isNew);
             }
         });
 
@@ -91,14 +94,14 @@ public class editShowDialog extends JDialog {
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                onCancel();
+                onCancel(isNew);
             }
         });
 
         // call onCancel() on ESCAPE
         contentPane.registerKeyboardAction(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onCancel();
+                onCancel(isNew);
             }
         }, KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
     }
@@ -108,7 +111,17 @@ public class editShowDialog extends JDialog {
         dispose();
     }
 
-    private void onCancel() {
+    private void onCancel(boolean isNew) {
+        if(isNew){
+            try{
+                Connection conn = DriverManager.getConnection(connectionClass.connectionString);
+                PreparedStatement pst = conn.prepareStatement("delete from show_time where show_id=?");
+                pst.setInt(1,thisShowID);
+                pst.execute();
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+        }
         // add your code here if necessary
         dispose();
     }

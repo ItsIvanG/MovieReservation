@@ -85,8 +85,7 @@ public class ShowManage {
                     pst.setString(3,String.valueOf(showDate));
                     pst.setTime(4,Time.valueOf("01:00:00"));
                     pst.execute();
-                    seeShows();
-                    new editShowDialog(sm, reservShowID).setVisible(true);
+                    new editShowDialog(sm, reservShowID, true).setVisible(true);
                 }catch (Exception x){
                     System.out.println(x.getMessage());
                 }

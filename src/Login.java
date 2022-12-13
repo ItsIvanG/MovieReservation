@@ -56,10 +56,10 @@ public class Login {
             ResultSet rs = pst.executeQuery();
             boolean found=false;
             while(rs.next()){
-                JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString(2));
-                h.customerEmail=rs.getString(1);
-                h.customerName=rs.getString(2);
-                h.customerContactNo=rs.getString(3);
+                JOptionPane.showMessageDialog(null, "Logged in as: "+rs.getString("account_name"));
+                h.customerEmail=rs.getString("account_email");
+                h.customerName=rs.getString("account_name");
+                h.customerContactNo=rs.getString("account_mobileno");
                 h.customerNameLabel.setText(h.customerName);
                 h.isAdmin=rs.getBoolean("admin");
                 h.accountid=rs.getString("account_id");
