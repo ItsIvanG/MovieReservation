@@ -20,7 +20,6 @@ public class HallManager {
     private JPanel seatsPanel;
     private JTextField hallNumberOfSeatsField;
     private JTextField hallSeatsPerRowField;
-    private JTextField movieRateField;
     private JButton previewButton;
     private JButton applyButton;
     private List<String> hallList = new ArrayList<>();
@@ -58,7 +57,6 @@ public class HallManager {
                     hallDescField.setText("");
                     hallNumberOfSeatsField.setText("");
                     hallSeatsPerRowField.setText("");
-                    movieRateField.setText("");
                     previewSeats(0,1);
                 }
             }

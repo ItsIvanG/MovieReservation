@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="accountID">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dfa4c11b-50a0-4e2c-a2df-778b9e227aae" name="Changes" comment="account details fix (id)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HallManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/HallManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MovieReserv.accdb" beforeDir="false" afterPath="$PROJECT_DIR$/src/MovieReserv.accdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ShowManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ShowManage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/editShowDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/editShowDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/showItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/showItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +348,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670913805400</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="account details fix (id)">
+      <created>1670926728155</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670926728155</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -420,7 +423,8 @@
     <MESSAGE value="rateAdd remove" />
     <MESSAGE value="show manage" />
     <MESSAGE value="accountID" />
-    <option name="LAST_COMMIT_MESSAGE" value="accountID" />
+    <MESSAGE value="account details fix (id)" />
+    <option name="LAST_COMMIT_MESSAGE" value="account details fix (id)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
